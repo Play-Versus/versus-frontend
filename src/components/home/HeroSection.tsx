@@ -103,7 +103,7 @@ export const HeroSection = () => {
         </div>
 
         {/* Right: The Giant V Logo */}
-        <div ref={logoRef} className="relative  md:ms-16 w-64 h-64 mt-12 sm:w-80 sm:h-80  md:mt-0 md:w-96 md:h-96 lg:w-md lg:h-112 xl:w-xl xl:h-192">
+        <div ref={logoRef} className="relative hidden md:block md:ms-16 w-64 h-64 mt-12 sm:w-80 sm:h-80   md:mt-0 md:w-96 md:h-96 lg:w-md lg:h-112 xl:w-xl xl:h-192">
           <Image
             src="/images/symbols/VersusSymbol_ElectricGreen.png"
             alt="Versus Logo"
