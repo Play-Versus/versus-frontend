@@ -51,7 +51,7 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative max-h-screen h-720px w-full overflow-hidden bg-black">
+    <div ref={containerRef} className="relative min-h-720px sm:min-h-screen w-full overflow-hidden bg-black">
       {/* Background Gradient */}
 
       {/* <div className="hero-gradient absolute inset-0 opacity-0 bg-gradient-to-br from-green-500/20 via-black to-black" /> */}
