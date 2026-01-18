@@ -1,4 +1,7 @@
 import Image from "next/image";
+import { RiInstagramLine } from "react-icons/ri";
+import { TiSocialFacebookCircular } from "react-icons/ti";
+import { AiOutlineLinkedin } from "react-icons/ai";
 
 export const Footer = () => (
   <footer className="bg-core-black py-12 text-text-primary">
@@ -14,9 +17,20 @@ export const Footer = () => (
               height={24}
             />
           </div>
-          <p className="text-xl text-text-secondary">
+          <p className="text-xl text-text-secondary mt-4 text-gray-600">
             Launching soon. Stay ready.
           </p>
+          <div id="social-links" className="flex flex-row gap-2 mt-4">
+            <a id="instagram" href="https://www.instagram.com/play_versus?utm_source=qr">
+              <RiInstagramLine className="h-8 w-8 " />
+            </a>
+            <a id="facebook" href="">
+              <TiSocialFacebookCircular className="h-8 w-8 " />
+            </a>
+            <a id="linked-in" href="">
+              <AiOutlineLinkedin  className="h-8 w-8 " />
+            </a>
+          </div>
         </div>
 
         <div className="flex gap-4">
@@ -35,14 +49,7 @@ export const Footer = () => (
             {/* Twitter SVG */}
           </a>
         </div>
-
       </div>
-    </div>
-    <div className="flex gap-2 p-6">
-      <div className="h-8 w-8 bg-core-neon"></div>
-      <div className="h-8 w-8 bg-accent-cyan"></div>
-      <div className="h-8 w-8 bg-surface-base"></div>
-      <div className="h-8 w-8 bg-text-secondary"></div>
     </div>
   </footer>
 );
