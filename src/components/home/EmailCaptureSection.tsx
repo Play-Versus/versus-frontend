@@ -19,7 +19,7 @@ export const EmailCaptureSection = () => {
     <section id="email-capture" ref={ref} className="bg-black py-20">
       <div className="container mx-auto px-6 md:px-8">
         <div
-          className={`mx-auto max-w-4xl overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-12 md:p-16 transition-all duration-1000 ${
+          className={`mx-auto min-w-full max-w-4xl overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900/50 to-purple-900/50 p-12 md:p-16 transition-all duration-1000 ${
             isVisible
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-12"

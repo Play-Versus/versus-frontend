@@ -17,9 +17,6 @@ export const Footer = () => (
               height={24}
             />
           </div>
-          <p className="text-xl text-text-secondary mt-4 text-gray-600">
-            Launching soon. Stay ready.
-          </p>
           <div id="social-links" className="flex flex-row gap-2 mt-4">
             <a id="instagram" href="https://www.instagram.com/play_versus?utm_source=qr">
               <RiInstagramLine className="h-8 w-8 " />
@@ -28,26 +25,16 @@ export const Footer = () => (
               <TiSocialFacebookCircular className="h-8 w-8 " />
             </a>
             <a id="linked-in" href="">
-              <AiOutlineLinkedin  className="h-8 w-8 " />
+              <AiOutlineLinkedin className="h-8 w-8 " />
             </a>
           </div>
         </div>
 
-        <div className="flex gap-4">
-          <a
-            href="#"
-            aria-label="Instagram"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-elevated text-text-primary hover:bg-surface-base"
-          >
-            {/* Instagram SVG */}
-          </a>
-          <a
-            href="#"
-            aria-label="Twitter"
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-elevated text-text-primary hover:bg-surface-base"
-          >
-            {/* Twitter SVG */}
-          </a>
+        <div className="flex flex-col gap-2">
+          <p className="text-gray-600 text-left md:text-end">
+          © 2026 PlayVersus™. All rights reserved.<br/>
+          PlayVersus™ and the PlayVersus logo are trademarks of PlayVersus.
+          </p>
         </div>
       </div>
     </div>
