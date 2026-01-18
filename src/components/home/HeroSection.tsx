@@ -5,6 +5,9 @@ import gsap from "gsap";
 import { Button } from "@/components/ui/Button"; // Assuming you have a shadcn/ui or custom button
 import { Header } from "@/components/layout/Header";
 import Image from "next/image";
+import * as THREE from "three";
+import { useMounted } from "@/hooks";
+
 
 
 export const HeroSection = () => {
@@ -42,18 +45,42 @@ export const HeroSection = () => {
       });
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert()
+    };
   }, []);
 
   return (
-    <div ref={containerRef} className="relative min-h-screen w-full overflow-hidden bg-black">
+    <div ref={containerRef} className="relative max-h-screen h-720px w-full overflow-hidden bg-black">
       {/* Background Gradient */}
-      <div className="hero-gradient absolute inset-0 opacity-0 bg-gradient-to-br from-green-500/20 via-black to-black" />
+
+      {/* <div className="hero-gradient absolute inset-0 opacity-0 bg-gradient-to-br from-green-500/20 via-black to-black" /> */}
 
       {/* Noise Texture */}
-      <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+      {/* <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
         style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")` }}
-      />
+      /> */}
+
+      <svg
+        viewBox="0 0 1280 700"
+        preserveAspectRatio="xMidYMid meet"
+        className="absolute inset-0 w-full h-full text-green-400 opacity-50 transition-all duration-500"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#" fillRule="nonzero"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#181818" fillRule="nonzero" className="relative z-0 fill-[rgb(214, 242, 255)]" transform="translate(-1800, 60) scale(2.8, 2.8) skewX(30)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#091814" fillRule="nonzero" className="relative z-1 fill-[rgb(199, 225, 243)]" transform="translate(-1650, 55) scale(2.65, 2.65) skewX(27.5)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#061F1E" fillRule="nonzero" className="relative z-2 fill-[rgb(184, 207, 230)]" transform="translate(-1500, 50) scale(2.5, 2.5) skewX(25)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#072F25" fillRule="nonzero" className="relative z-3 fill-[rgb(169, 190, 218)]" transform="translate(-1350, 45) scale(2.3499999999999996, 2.3499999999999996) skewX(22.5)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#083E2B" fillRule="nonzero" className="relative z-4 fill-[rgb(154, 173, 206)]" transform="translate(-1200, 40) scale(2.2, 2.2) skewX(20)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#0A4B2C" fillRule="nonzero" className="relative z-5 fill-[rgb(139, 155, 193)]" transform="translate(-1050, 35) scale(2.05, 2.05) skewX(17.5)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#0C682D" fillRule="nonzero" className="relative z-6 fill-[rgb(125, 138, 181)]" transform="translate(-900, 30) scale(1.9, 1.9) skewX(15)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#0E862D" fillRule="nonzero" className="relative z-7 fill-[rgb(110, 121, 169)]" transform="translate(-750, 25) scale(1.75, 1.75) skewX(12.5)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#11A42E" fillRule="nonzero" className="relative z-8 fill-[rgb(95, 103, 156)]" transform="translate(-600, 20) scale(1.6, 1.6) skewX(10)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#14C21F" fillRule="nonzero" className="relative z-9 fill-[rgb(80, 86, 144)]" transform="translate(-450, 15) scale(1.45, 1.45) skewX(7.5)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#17E110" fillRule="nonzero" className="relative z-10 fill-[rgb(65, 69, 132)]" transform="translate(-300, 10) scale(1.3, 1.3) skewX(5)"></path>
+        <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#1AFF00" fillRule="nonzero" className="relative z-11 fill-[rgb(50, 51, 119)]" transform="translate(-150, 5) scale(1.15, 1.15) skewX(2.5)"/>
+      </svg>
 
       <Header />
 
