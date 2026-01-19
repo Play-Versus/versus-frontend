@@ -24,7 +24,7 @@ export const EmailCaptureSection = () => {
             : "opacity-0 translate-y-12"
             }`}
         >
-          <div className="text-center backdrop-blur-sm py-12 ">
+          <div className="text-center backdrop-blur-xs py-12 ">
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               It's almost Game Day
             </h2>
@@ -42,7 +42,7 @@ export const EmailCaptureSection = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className=" min-w-full md:min-w-64"
+                className=" min-w-full md:min-w-64 "
               />
 
 

@@ -92,7 +92,7 @@ export const FeaturesSection = () => {
       <div className="container mx-auto px-6 md:px-8">
         {/* Section Header */}
         <div
-          className={`mb-16 text-center transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          className={`mb-16 text-center transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
         >
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">

@@ -84,7 +84,7 @@ export const HeroSection = () => {
 
       <Header />
 
-      <div className="container relative z-10 mx-auto flex min-h-180 flex-col  items-center justify-center px-6 pt-20 md:flex-col md:gap-16 md:justify-between md:px-12 lg:flex-row ">
+      <div className="container relative z-10 mx-auto flex min-h-130 md:min-h-180 flex-col  items-center justify-center px-6 md:pt-20 md:flex-col md:gap-16 md:justify-between md:px-12 lg:flex-row ">
         {/* Left: Text Content */}
         <div ref={textRef} className="max-w-2xl space-y-8">
           <h1 className="text-5xl font-bold leading-tight tracking-tight text-white md:text-7xl">

@@ -16,13 +16,12 @@ export const FeatureCard = ({
   return (
     <div
       ref={ref}
-      className={`group relative overflow-hidden rounded-2xl transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
-      }`}
+      className={`group relative overflow-hidden rounded-2xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-16"
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {/* Background Image */}
-      <div className="aspect-[4/5] overflow-hidden bg-gray-800" style={{backgroundImage: image}}>
+      <div className="aspect-4/5 overflow-hidden bg-gray-800" style={{ backgroundImage: image }}>
         {/* <div
           className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
           style={{ backgroundImage: image }}
@@ -38,7 +37,10 @@ export const FeatureCard = ({
             muted
             loop
             playsInline
-          />
+          >
+            <source src={video.src} media="(max-width: 768px)" />
+            <source src={video.src} media="(min-width: 769px)" />
+          </video>
         ) : (
           <div
             className="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -48,10 +50,11 @@ export const FeatureCard = ({
           />
         )}
       </div>
-      
+
 
       {/* Overlay Content */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+      {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6"> */}
+      <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t  from-black/90 via-black/60 to-transparent p-6 p-6">
         {icon && (
           <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm">
             {icon}
@@ -63,3 +66,4 @@ export const FeatureCard = ({
     </div>
   );
 };
+
