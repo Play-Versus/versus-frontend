@@ -51,20 +51,11 @@ export const HeroSection = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative min-h-720px sm:min-h-screen w-full overflow-hidden bg-black">
-      {/* Background Gradient */}
-
-      {/* <div className="hero-gradient absolute inset-0 opacity-0 bg-gradient-to-br from-green-500/20 via-black to-black" /> */}
-
-      {/* Noise Texture */}
-      {/* <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")` }}
-      /> */}
-
+    <div ref={containerRef} className="relative min-h-720px sm:min-h-screen w-full overflow-hidden bg-black contain-[paint]">
       <svg
         viewBox="0 0 1280 700"
-        preserveAspectRatio="xMidYMid meet"
-        className="absolute inset-0 w-full h-full text-green-400 opacity-50 transition-all duration-500"
+        preserveAspectRatio="xMidYMid slice"
+        className="absolute inset-0 w-full h-full text-green-400 opacity-50 transition-all duration-500 overflow-hidden"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M734.567 34.372c-28.692 61.724-23.266 100.422 16.275 116.094 59.313 23.508 200.347 32.911 259.299 83.906 58.95 50.994 238.697 11.572 269.438-75.95C1310.32 70.9 1365.669-64 1073.808-64c-194.576 0-307.654 32.79-339.24 98.372h-.001z" fill="#" fillRule="nonzero"></path>
