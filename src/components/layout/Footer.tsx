@@ -11,7 +11,7 @@ export const Footer = () => (
         <div>
           <div className="mb-2 text-2xl font-bold">
             <Image
-              src="/images/logo/VersusLogo_Black.png"
+              src="/images/logo/Logo_Black.png"
               alt="Logo"
               width={120}
               height={24}
@@ -32,8 +32,7 @@ export const Footer = () => (
 
         <div className="flex flex-col gap-2">
           <p className="text-gray-600 text-left md:text-end">
-          © 2026 PlayVersus™. All rights reserved.<br/>
-          PlayVersus™ and the PlayVersus logo are trademarks of PlayVersus.
+          © 2026 PlayVersus™. All rights reserved.
           </p>
         </div>
       </div>

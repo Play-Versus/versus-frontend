@@ -30,7 +30,7 @@ export const Header = () => {
 
           {/* Show this logo only in DARK mode */}
           <Image
-            src="/images/logo/VersusLogo_White.png" // Replace with your dark-mode logo
+            src="/images/logo/Logo_White.png" // Replace with your dark-mode logo
             alt="Logo"
             width={120}
             height={24}
