@@ -7,10 +7,9 @@ export const Header = () => {
   const mounted = useMounted();
 
   return (
-    // 1. Background adapts: White in light mode, Black in dark mode
-    <header className="p-6 bg-white dark:bg-black md:p-8 transition-colors duration-300">
+    <header className="p-6 dark:bg-black md:p-8 transition-colors duration-300">
       <div
-        className={`text-2xl p-[2rem] font-bold text-gray-900 dark:text-white transition-all duration-700 ${
+        className={`text-2xl p-8 font-bold text-gray-900 dark:text-white transition-all duration-700 ${
           mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
         }`}
       >
