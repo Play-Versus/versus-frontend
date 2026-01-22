@@ -88,7 +88,7 @@ export const FeaturesSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section ref={ref} className="bg-black pt-16 md:pt-24 pb-4">
+    <section ref={ref} className="bg-transparent pt-16 md:pt-24 pb-4">
       <div className="container mx-auto px-6 md:px-8">
         {/* Section Header */}
         <div

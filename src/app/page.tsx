@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="bg-black">
       <HeroSection /> 
       <FeaturesSection />
       <EmailCaptureSection />
