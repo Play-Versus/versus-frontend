@@ -4,7 +4,7 @@ import { TiSocialFacebookCircular } from "react-icons/ti";
 import { AiOutlineLinkedin } from "react-icons/ai";
 
 export const Footer = () => (
-  <footer className="bg-core-black py-12 text-text-primary">
+  <footer className="bg-white py-12 text-text-primary">
     <div className="container mx-auto px-6 md:px-8">
       <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
 
