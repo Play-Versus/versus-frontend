@@ -16,105 +16,76 @@ export const HeroSection = () => {
 
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
+    const isMobile =
+      typeof window !== "undefined" &&
+      window.matchMedia("(max-width: 768px)").matches;
 
-      // // 1️⃣ Ultra-subtle vertical liquid drift
-      // gsap.to(".wave", {
-      //   y: (i) => -6 + i * 0.6, // 👈 very small movement
-      //   duration: 14,          // 👈 slow = calm
-      //   ease: "sine.inOut",
-      //   repeat: -1,
-      //   yoyo: true,
-      //   stagger: {
-      //     each: 0.25,
-      //     from: "center",
-      //   },
-      // });
+    const reduceMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      // // 2️⃣ Ultra-subtle horizontal flow
-      // // gsap.to(".wave", {
-      // //   xPercent: (i) => Math.sin(i * 0.7) * 3.5, // 👈 expressive but safe
-      // //   duration: 20,            // 👈 very slow
-      // //   ease: "sine.inOut",
-      // //   repeat: -1,
-      // //   yoyo: true,
-      // //   stagger: {
-      // //     each: 0.3,
-      // //     from: "edges",
-      // //   },
-      // // });
+    const handleVisibility = () => {
+      gsap.globalTimeline.timeScale(document.hidden ? 0 : 1);
+    };
 
-      // gsap.to(".wave", {
-      //   skewX: (i) => 0.6 + Math.sin(i) * 0.3,
-      //   duration: 7,
-      //   ease: "sine.inOut",
-      //   repeat: -1,
-      //   yoyo: true,
-      // });
-
-
-      // // 3️⃣ Breathing opacity (depth)
-      // gsap.fromTo(
-      //   ".wave",
-      //   { opacity: 0.42 },
-      //   {
-      //     opacity: 0.58,
-      //     duration: 8,
-      //     ease: "sine.inOut",
-      //     repeat: -1,
-      //     yoyo: true,
-      //     stagger: {
-      //       each: 0.2,
-      //       from: "random",
-      //     },
-      //   }
-      // );
-
-      // Horizontal expressive flow (safe, a bit faster)
-      // Horizontal expressive flow (alive, still safe)
-      // Horizontal expressive flow (more rhythm, still safe)
-      // Horizontal expressive flow (faster rhythm, no overlap)
-      gsap.to(".wave", {
-        xPercent: (i) => Math.sin(i * 0.9) * 4.6,
-        duration: 9.5,          // ⬇️ from 11.5 → 9.5
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-      });
-
-      // Vertical liquid drift (quicker tide)
-      gsap.to(".wave", {
-        y: (i) => -9 + i * 0.9,
-        duration: 7.2,          // ⬇️ from 8.5 → 7.2
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-      });
-
-      // Breathing (keeps up, still soft)
-      gsap.fromTo(
-        ".wave",
-        { opacity: 0.5 },
-        {
-          opacity: 0.56,
-          duration: 8.5,        // ⬇️ from 10.5 → 8.5
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-        }
-      );
-
-
-
-
-
-    });
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    // ❌ Disable entirely on mobile or reduced motion
+    if (isMobile || reduceMotion) {
       gsap.set(".wave", { clearProps: "all" });
       return;
     }
-    return () => ctx.revert();
+
+    const ctx = gsap.context(() => {
+      // GPU hint
+      gsap.set(".wave", { willChange: "transform" });
+
+      // Single master timeline (PERF 🔥)
+      const tl = gsap.timeline({
+        repeat: -1,
+        yoyo: true,
+        defaults: {
+          ease: "sine.inOut",
+        },
+      });
+
+      // Horizontal flow (safe + light)
+      tl.to(
+        ".wave",
+        {
+          xPercent: (i) => Math.sin(i * 0.85) * 3.8,
+          duration: 10,
+          force3D: true,
+        },
+        0
+      );
+
+      // Vertical drift (cheap transform)
+      tl.to(
+        ".wave",
+        {
+          y: (i) => -7 + i * 0.7,
+          duration: 8,
+          force3D: true,
+        },
+        0
+      );
+
+      // Opacity breathing (VERY subtle, synced)
+      tl.to(
+        ".wave",
+        {
+          opacity: 0.55,
+          duration: 12,
+        },
+        0
+      );
+    });
+    document.addEventListener("visibilitychange", handleVisibility);
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
+      ctx.revert()
+    };
   }, []);
+
 
   return (
     <div
@@ -125,7 +96,7 @@ export const HeroSection = () => {
       <svg
         viewBox="0 0 1440 700"
         preserveAspectRatio="xMidYMid slice"
-        className="absolute inset-0 w-full h-full overflow-hidden block"
+        className="absolute inset-0 w-full h-full overflow-hidden block opacity-70"
         xmlns="http://www.w3.org/2000/svg"
       >0A4B2C
         {/* Base layer (invisible) */}
