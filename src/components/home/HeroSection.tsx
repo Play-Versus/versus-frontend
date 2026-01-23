@@ -16,9 +16,9 @@ export const HeroSection = () => {
 
 
   useEffect(() => {
-    const isMobile =
-      typeof window !== "undefined" &&
-      window.matchMedia("(max-width: 768px)").matches;
+    // const isMobile =
+    //   typeof window !== "undefined" &&
+    //   window.matchMedia("(max-width: 768px)").matches;
 
     const reduceMotion =
       typeof window !== "undefined" &&
@@ -29,7 +29,8 @@ export const HeroSection = () => {
     };
 
     // ❌ Disable entirely on mobile or reduced motion
-    if (isMobile || reduceMotion) {
+    // if (isMobile || reduceMotion) {
+    if (reduceMotion){
       gsap.set(".wave", { clearProps: "all" });
       return;
     }
