@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Open_Sans, Sora } from "next/font/google";
+import { Open_Sans, Sora, Rajdhani} from "next/font/google";
 import "./globals.css"
 
 const sora = Sora({
@@ -12,6 +12,13 @@ const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
   display: "swap",
+});
+
+const rajdhani = Rajdhani({
+  weight:["300","400","500","600","700"],
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-rajdhani"
 });
 
 export const metadata: Metadata = {
@@ -49,8 +56,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${openSans.variable} ${sora.variable} antialiased`}>
-      <body className={`${openSans.variable} ${sora.variable} antialiased`}>
+    <html lang="en" className={`${openSans.variable} ${rajdhani.variable} ${sora.variable}  antialiased`}>
+      <body className={`${openSans.variable} ${rajdhani.variable} ${sora.variable} antialiased`}>
         {children}
       </body>
     </html>
