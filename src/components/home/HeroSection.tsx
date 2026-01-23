@@ -52,7 +52,7 @@ export const HeroSection = () => {
         ".wave",
         {
           xPercent: (i) => Math.sin(i * 0.85) * 3.8,
-          duration: 10,
+          duration: 8,
           force3D: true,
         },
         0
@@ -63,7 +63,7 @@ export const HeroSection = () => {
         ".wave",
         {
           y: (i) => -7 + i * 0.7,
-          duration: 8,
+          duration: 6,
           force3D: true,
         },
         0
@@ -74,7 +74,7 @@ export const HeroSection = () => {
         ".wave",
         {
           opacity: 0.55,
-          duration: 12,
+          duration: 10,
         },
         0
       );
