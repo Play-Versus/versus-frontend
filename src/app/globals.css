@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --border: 214 219 220;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+  }
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-rajdhani), sans-serif;
+  }
+
+  p {
+    font-family: var(--font-open-sans
+    ), sans-serif
+  }
+
+  body {
+    /* @apply bg-white text-gray-900; */
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
