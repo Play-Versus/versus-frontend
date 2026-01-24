@@ -17,15 +17,15 @@ export const HeroSection = () => {
       className="relative h-180 sm:min-h-480px md:min-h-screen w-full overflow-hidden  contain-[paint]"
     >
       <WaveBackground
-        backgroundColor="bg-green-600" // Use a lighter green
+        backgroundColor="bg-[#0E6F1A]" // Use a lighter green
         blobColor="bg-black"
         opacity={1}            // Higher opacity
         saturation={2.5}         // Over-saturate for that "glow"
         brightness={1.4}         // Boost brightness
-        blur={20}                // Medium blur keeps the color "thick"
-        blobCount={8}            // Fewer blobs prevents them from turning into one giant mush
-        minSize={0.5}
-        maxSize={0.6}
+        blur={10}                // Medium blur keeps the color "thick"
+        blobCount={6}            // Fewer blobs prevents them from turning into one giant mush
+        minSize={0.4}
+        maxSize={0.5}
         intensity={0.1}
       />
       <Header />
