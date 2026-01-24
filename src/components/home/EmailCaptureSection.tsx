@@ -23,7 +23,7 @@ export const EmailCaptureSection = () => {
             isVisible ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
           }`}
         >
-          <div className="py-12 text-center backdrop-blur-sm">
+          <div className="py-12 text-center backdrop-blur-xs">
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               It's almost Game Day
             </h2>
