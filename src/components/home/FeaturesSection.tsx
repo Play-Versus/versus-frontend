@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useScrollAnimation } from "@/hooks";
-import { FeatureCard } from "./FeatureCard";
+import { useScrollAnimation } from '@/hooks';
+import { FeatureCard } from './FeatureCard';
 
 const features = [
   {
     image:
-      "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     video: {
-      src: "/videos/2932301-uhd_4096_2160_24fps.mp4",
+      src: '/videos/2932301-uhd_4096_2160_24fps.mp4',
       // poster: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
     },
-    title: "Match instantly with people ready to play.",
-    description: "Find players at your skill level, anytime",
+    title: 'Match instantly with people ready to play.',
+    description: 'Find players at your skill level, anytime',
     icon: (
       <svg
         className="h-5 w-5 text-white"
@@ -32,13 +32,13 @@ const features = [
   },
   {
     image:
-      "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+      'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     video: {
-      src: "/videos/4440928-hd_1920_1080_25fps.mp4",
+      src: '/videos/4440928-hd_1920_1080_25fps.mp4',
       // poster: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
     },
-    title: "Pickup matches, 1v1s, or group sessions.",
-    description: "Flexible formats for every game style",
+    title: 'Built for local sports communities',
+    description: 'Find your people. Build rivalries',
     icon: (
       <svg
         className="h-5 w-5 text-white"
@@ -58,13 +58,13 @@ const features = [
   },
   {
     image:
-      "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
+      'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     video: {
-      src: "/videos/13960806_3840_2160_60fps.mp4",
+      src: '/videos/13960806_3840_2160_60fps.mp4',
       // poster: "linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
     },
-    title: "Play with others at your level.",
-    description: "Skill-based matching for competitive games",
+    title: 'Play with others at your level.',
+    description: 'Skill-based matching for competitive games',
     icon: (
       <svg
         className="h-5 w-5 text-white"
@@ -88,12 +88,13 @@ export const FeaturesSection = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section ref={ref} className="bg-transparent pt-16 md:pt-24 pb-4">
+    <section ref={ref} className="bg-transparent pt-16 pb-4 md:pt-24">
       <div className="container mx-auto px-6 md:px-8">
         {/* Section Header */}
         <div
-          className={`mb-16 text-center transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+          className={`mb-16 text-center transition-all duration-1000 ease-out ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
         >
           <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             For those who play after work.
