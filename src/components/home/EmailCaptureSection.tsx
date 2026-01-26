@@ -27,7 +27,7 @@ export const EmailCaptureSection = () => {
             <h2 className="mb-4 text-3xl font-bold text-white md:text-4xl">
               It's almost Game Day
             </h2>
-            <p className="mb-8 text-lg text-gray-300">
+            <p className="mb-8 text-lg text-gray-200">
               Launching soon. Stay ready.
             </p>
 
