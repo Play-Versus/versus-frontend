@@ -7,7 +7,7 @@ export const Header = () => {
   const mounted = useMounted();
 
   return (
-    <header className="p-6 transition-colors duration-300 md:p-8 dark:bg-black">
+    <header className="px-6 transition-colors duration-300 md:px-8 dark:bg-black">
       <div
         className={`p-2 text-2xl font-bold text-gray-900 transition-all duration-700 md:p-8 dark:text-white ${
           mounted ? 'translate-y-0 opacity-100' : '-translate-y-8 opacity-0'
@@ -29,7 +29,8 @@ export const Header = () => {
 
           {/* Show this logo only in DARK mode */}
           <Image
-            src="/images/logo/Logo_White.png" // Replace with your dark-mode logo
+            // src="/images/logo/Logo_White.png" // Replace with your dark-mode logo
+            src="https://assets.playversus.in/media/logos/versus-logo-assets-white/android-chrome-512x512.png"
             alt="Logo"
             width={120}
             height={24}
